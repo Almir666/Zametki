@@ -1,0 +1,6 @@
+1; 02.02.2023; note; test text; 
+2; 02.02.2023; note two; data; 
+3; 02.02.2023; note 3; work continiue; 
+4; 02.02.2023; note4; ergwtrheyhwrtnrhwnwrht; 
+5; 02.02.2023; note 5; sgjnworoppokrpokpok; 
+6; 02.02.2023; note 6; sdkjbn wkg kjoiwjetho kjojesth jokjoijne ojoij ib jbnijnij oijoiom hjbhjbij joijoiio k; 
