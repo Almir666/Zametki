@@ -44,15 +44,15 @@ def search_by_word():
         file.close()
 def search_by():
     print("Параметры поиска:\n 1 - ID \n 2 - Дата \n 3 - По заголовку\n 4 - По слову \n 0 - выход \n")
-    com = int(input())
-    if com == 1:
+    com = input()
+    if com == '1':
         search_by_id()
-    elif com == 2:
+    elif com == '2':
         search_by_date()
-    elif com == 3:
+    elif com == '3':
         search_by_header()
-    elif com == 4:
+    elif com == '4':
         search_by_word()
-    elif com == 0:
+    elif com == '0':
         return
     print()

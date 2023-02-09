@@ -1,6 +1,14 @@
-def edit_head():
+def input_new_data():
+    id = input("новое ID заметки: ")
+    date = input("дата и время изменения: ")
+    header = input("новый заголовок: ")
+    text = input("новый текст: ")
+
+    return [id, date, header, text]
+def edit_note():
+    dictionary = {}
     id = input("Введите ID заметки которую хотите отредактировать: ")
-    with open("data.txt", 'r') as file:
+    with open("data.txt") as file:
         data_text = file.readlines()
         if len(data_text) > 0:
             for item in data_text:
@@ -8,20 +16,16 @@ def edit_head():
                     print(item)
         else:
             print("Никаких заметок нет")
-        file.close()
+    new_data = input_new_data()
+    with open("data.txt", "w") as f:
+        for item in data_text:
+            if ("id: " + id + "; ") in item:
+                f.write("id: " + new_data[0] + "; ")
+                f.write("дата: " + new_data[1] + "; ")
+                f.write("заголовок: " + new_data[2] + "; ")
+                f.write("содержание: " + new_data[3] + "; \n")
+        for item in data_text:
+            if ("id: " + id + "; ") not in item:
+                f.write(item)
+    file.close()
 
-    print("Запишите новый текст: ")
-    new_data = input()
-
-def edit_text():
-    print("working...")
-
-def edit_note():
-    print("Редактировать: \n 1 - Заголовок \n 2 - Содержание \n 0 - выход \n")
-    com = int(input())
-    if com == 1:
-        edit_head()
-    elif com == 2:
-        edit_text()
-    elif com == 0:
-        return

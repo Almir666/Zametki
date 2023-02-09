@@ -1,5 +1,4 @@
 from input_data import inputData
-
 def write_data():
     file = open('data.txt', 'a')
     data = inputData()

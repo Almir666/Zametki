@@ -1,5 +1,5 @@
 def delete_row():
-    print("Заметку можно удалить по номеру строки")
+    print("Укажите номер строки: ")
     with open("data.txt") as file:
         id_del = int(input())
         id_note = file.readlines()
@@ -21,10 +21,12 @@ def delete_by_id():
         file.close()
 def del_by():
     print("Удалить заметку можно по ID или номеру строки: \n 1 - ID \n 2 - № строки \n 0 - выход \n")
-    com = int(input())
-    if com == 1:
+    com = input()
+    if com == '1':
         delete_by_id()
-    elif com == 2:
+    elif com == '2':
         delete_row()
-    elif com == 0:
+    elif com == '0':
         return
+    else:
+        print("нужно ввести цифру от 0 до 2")
