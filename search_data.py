@@ -6,6 +6,8 @@ def search_by_id():
             for item in data_text:
                 if ("id: " + id + "; ") in item:
                     print(item)
+        else:
+            print("Никаких заметок нет")
         file.close()
 def search_by_date():
     date = input("Введите дату и время для поиска: ")
@@ -15,6 +17,8 @@ def search_by_date():
             for item in data_text:
                 if ("дата: " + date + "; ") in item:
                     print(item)
+        else:
+            print("Никаких заметок нет")
         file.close()
 def search_by_header():
     head = input("Введите заголовок для поиска: ")
@@ -24,6 +28,8 @@ def search_by_header():
             for item in data_text:
                 if ("заголовок: " + head + "; ") in item:
                     print(item)
+        else:
+            print("Никаких заметок нет")
         file.close()
 def search_by_word():
     word = input("Введите ключевое слово для поиска: ")
@@ -33,9 +39,8 @@ def search_by_word():
             for item in data_text:
                 if word in item:
                     print(item)
-                else:
-                    print("not found")
-                    return
+        else:
+            print("Никаких заметок нет")
         file.close()
 def search_by():
     print("Параметры поиска:\n 1 - ID \n 2 - Дата \n 3 - По заголовку\n 4 - По слову \n 0 - выход \n")
