@@ -1,4 +1,8 @@
 def readF():
     file = open('data.txt')
-    print(file.read())
+    data = file.read()
+    if len(data) > 0:
+        print(data)
+    else:
+        print("Заметок нет \n")
     file.close()

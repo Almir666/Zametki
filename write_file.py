@@ -1,10 +1,14 @@
 from input_data import inputData
+import datetime
+from random import randint
 def write_data():
+    date = datetime.datetime.today() - datetime.timedelta(1)
+    id = randint(0,999)
     file = open('data.txt', 'a')
     data = inputData()
-    file.write("id: " + data[0] + "; ")
-    file.write("дата: " + data[1] + "; ")
-    file.write("заголовок: " + data[2] + "; ")
-    file.write("содержание: " + data[3] + "; \n")
+    file.write('* ' + data[0] + ": ")
+    file.write('"' + data[1] + '"' + "; ")
+    file.write("создано: " + str(date.strftime('%Y-%m-%d %H:%M:%S')) + "; ")
+    file.write("id: " + str(id) + "; \n")
     file.close()
     print("Заметка создана!" + "\n")

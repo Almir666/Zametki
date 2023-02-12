@@ -15,18 +15,7 @@ def search_by_date():
         data_text = file.readlines()
         if len(data_text) > 0:
             for item in data_text:
-                if ("дата: " + date + "; ") in item:
-                    print(item)
-        else:
-            print("Никаких заметок нет")
-        file.close()
-def search_by_header():
-    head = input("Введите заголовок для поиска: ")
-    with open("data.txt", 'r') as file:
-        data_text = file.readlines()
-        if len(data_text) > 0:
-            for item in data_text:
-                if ("заголовок: " + head + "; ") in item:
+                if ("создано: " + date + "; ") in item:
                     print(item)
         else:
             print("Никаких заметок нет")
@@ -43,16 +32,13 @@ def search_by_word():
             print("Никаких заметок нет")
         file.close()
 def search_by():
-    print("Параметры поиска:\n 1 - ID \n 2 - Дата \n 3 - По заголовку\n 4 - По слову \n 0 - выход \n")
+    print("Параметры поиска:\n 1 - По ключевому слову \n 2 - По дате \n 3 - По ID \n 0 - выход \n")
     com = input()
     if com == '1':
-        search_by_id()
+        search_by_word()
     elif com == '2':
         search_by_date()
     elif com == '3':
-        search_by_header()
-    elif com == '4':
-        search_by_word()
+        search_by_id()
     elif com == '0':
         return
-    print()
