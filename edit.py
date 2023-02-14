@@ -1,39 +1,37 @@
 import datetime
+import csv
 def input_new_data():
     header = input("новый заголовок: ")
     text = input("новый текст: ")
-
     return [header, text]
+
 def edit_note():
+    date = datetime.datetime.today() - datetime.timedelta(1)
     id = input(" Заметку можно найти по ID \n Выйти - 0 \n")
     if len(str(id)) <= 3 and id.isdigit():
         if id != '0':
-            with open("data.txt") as file:
-                data_text = file.readlines()
-                if len(data_text) > 0:
-                    for item in data_text:
-                        if ("id: " + id + "; ") in item:
-                            print(item)
-                else:
-                    print("Никаких заметок нет")
-            date = datetime.datetime.today() - datetime.timedelta(1)
-            new_data = input_new_data()
-            with open("data.txt", "w") as f:
-                for item in data_text:
-                    if ("id: " + id + "; ") in item:
-                        f.write('* ' + new_data[0] + ": ")
-                        f.write(new_data[1] + "; ")
-                        f.write("изменено: " + str(date.strftime('%Y-%m-%d %H:%M:%S')) + "; ")
-                        f.write("id: " + id + "; \n")
-                for item in data_text:
-                    if ("id: " + id + "; ") not in item:
-                        f.write(item)
+            new_data = []
+            file = open("data.csv", 'r')
+            data_text = csv.reader(file)
+            for item in data_text:
+                new_data.append(item)
+                if ("id: " + id) in item:
+                    print(item)
             file.close()
+            new_text = input_new_data()
+            f = open("data.csv", 'w')
+            writer = csv.writer(f)
+            writer.writerow(['* ' + new_text[0], new_text[1], "изменено: " + str(date.strftime('%Y-%m-%d %H:%M:%S')),
+                             "id: " + str(id)])
+            for item in new_data:
+                if ("id: " + id) not in item:
+                    writer.writerow(item)
+            f.close()
+            print("изменения сохранены")
         else:
             return
     else:
         print('нужно ввести идентификатор в виде цифры')
         return
-
 
 

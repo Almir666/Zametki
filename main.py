@@ -1,7 +1,7 @@
 from write_file import write_data
 from read_file import readF
 from search_data import search_by
-from del_data import del_by
+from del_data import delete_note
 from edit import edit_note
 
 while True:
@@ -16,15 +16,8 @@ while True:
     elif com == '4':
         edit_note()
     elif com == '5':
-        del_by()
+        delete_note()
     elif com == '0':
         break
     else:
         print("Введите корректную цифру, от 0 до 5")
-
-
-
-# id: 1; дата: 08.02.2023 21:49; заголовок: note 1; содержание: random text;
-# id: 2; дата: 08.02.2023 21:50; заголовок: note 2; содержание: test data;
-# id: 3; дата: 08.02.2023 21:51; заголовок: note 3; содержание: dg brgb nyjnyjmyjm ;
-# id: 4; дата: 08.02.2023 21:55; заголовок: note 4; содержание: can i exit?;
